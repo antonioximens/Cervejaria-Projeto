@@ -1,0 +1,293 @@
+// mixin para padronizar fonte, tamanho da fonte e tipo da fonte
+@mixin padrao-text($color,$font-size,$font-family)
+{
+    color: $color;
+    font-size: $font-size;
+    font-family: $font-family;
+}
+
+// padronizando os espaços
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+   // mostra qual elemento passou do container
+//    outline: 1px solid red;
+}
+
+// container de todo conteudo
+.box-container
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    //remover todo resto de elemento que passou do container
+    overflow: hidden;
+}
+
+// Deixando o video 100% responsivel e de fundo
+//Preparei um container para o video, aloquei 100% para ficar responsivel
+.video-container
+{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.26%;
+    height: 0;
+    overflow: hidden;
+}
+
+// apos preparar o container deixei o video no seu tamnho e de forma 
+// que ocupa toda parte da divs
+.video-container video
+{
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+// a imagem da logo da nav ou menu
+.img-logo
+{
+    width: 12.5rem;
+    margin-left: 1.125rem;
+    padding: .4rem;
+    // box-shadow: -1px 1px 9px .9px $color-borda-lofo-nav;
+    // box-shadow: direção opacidade expessura espessura #c23737;
+
+    @media (max-width: 425px)
+    {
+        width: 7.5rem;  
+    }
+}
+
+// colocando o flex-box no header para deixar os li lado a lado
+.header-nav-menu
+{
+    background: linear-gradient($bg-color-nav, #000000);
+}
+
+// jogando os links da nav a direita do header
+nav > div
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    // ou posso usar o
+    // position: absolute;
+    // right: 0;
+}
+
+// espaçamento entre os botoes
+.nav-menu > span
+{
+    margin-left: 1.125rem;
+}
+
+// // menu lista das ancoras // li do menu
+.nav-menu > span > a
+{
+    color: $color-text-padrao;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @media (max-width: 425px)
+    {
+       font-size: .75rem;  
+    }
+}
+
+// hover nos botoes do menu
+.nav-menu > span > a:hover
+{
+    background-color: $bg-color-nav-li;
+    color: $color-text-padrao;
+}
+
+// alterando o titulo principal OASIS
+.header-title 
+{
+    @include padrao-text($color-title-oasis, 6rem, 'Protest Revolution');
+    text-align: center;
+    padding-top: 4.8rem;
+    margin-bottom: 4rem;
+    
+    @media (max-width: 768px)
+    {
+        font-size: 5rem;
+        padding-top: .5rem;
+        margin-bottom: 2rem;     
+    }
+
+    @media (max-width: 425px)
+    {
+        font-size: 3rem;
+        margin-bottom: .9rem;     
+    }
+}
+
+// descrição da cervejaria abaixo do nome OASIS
+.div-description
+{
+    @include padrao-text($color-text-padrao, 1.125rem, 'Protest Revolution');
+    width: 60%;
+    margin: 0px auto;
+    padding: .9rem;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 20px 0px 20px 0px;
+
+    @media (max-width: 768px)
+    {
+        font-size: 1rem;
+        padding: .2rem;         
+    }
+
+    @media (max-width: 425px)
+    {
+        width: 90%;
+        font-size: .6rem;
+        padding: .2rem;    
+    }
+}
+
+// mudando o fundo da main 
+.main-background
+{
+    background-color: $bg-color;
+}
+
+// titulo da galeria
+.main-subtitulo-variedade
+{
+    @include padrao-text($color-text-padrao, 2.8rem, 'Protest Revolution');
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @media (max-width: 768px)
+    {
+        font-size: 2.2rem;   
+    }
+
+    @media (max-width: 425px)
+    {
+        font-size: 1.68rem;    
+    }
+}
+
+// titulo das variedades das cervejas
+.main-subtitulo-cervejas
+{
+    @include padrao-text($color-text-padrao, 45px, 'Protest Revolution');
+    margin-top: 3rem;
+    padding-left: 1.125rem;
+
+    @media (max-width: 768px)
+    {
+        font-size: 2rem;   
+    }
+
+    @media (max-width: 425px)
+    {
+        font-size: 1.4rem;    
+    }
+}
+
+// span com img e legenda
+.main-card-span
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    gap: 1.125rem .9rem;
+
+    @media (max-width: 425px)
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto;    
+    }
+}
+
+// imagem da cerveja
+.img-cerveja
+{
+    width: 13.75rem;
+    height: 275px;
+    border: 2px solid #eeb844;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+
+    @media (max-width: 768px)
+    {
+        width: 9rem;
+        height: auto;  
+    }
+
+    @media (max-width: 425px)
+    {
+        width: 7rem;
+        height: auto;  
+    }
+
+    
+}
+
+// hover de seleção
+.img-cerveja:hover {
+    cursor: pointer;
+    border: 2px solid #e01d10;
+}
+
+// legenda da imagem
+.legenda-img
+{
+    @include padrao-text($color-text-padrao, 1rem, 'Roboto');
+    text-align: center;
+    width: 42%;
+    color: $color-text-padrao;
+
+    @media (max-width: 1024px)
+    {
+        font-size: .840rem; 
+    }
+
+    @media (max-width: 768px)
+    {
+        font-size: .66rem; 
+        width: 60%;
+    }
+
+    @media (max-width: 425px)
+    {
+        width: 90%;
+    }
+}
+
+// footer
+.footer-background
+{
+    background: linear-gradient(#000000,$bg-color-nav);
+}
+
+// legandas do footer com icons
+.footer-legendas-p
+{
+    @include padrao-text($color-text-padrao, 1rem, 'Roboto');
+    align-content: center;
+
+    @media (max-width: 425px)
+    {
+        font-size: .7rem;
+    }
+    
+}
